@@ -11,6 +11,7 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', () => {
+    page.navigateTo();
     expect(page.getTitleText()).toEqual('Welcome to TestAutomation!');
   });
 
@@ -25,15 +26,15 @@ describe('workspace-project App', () => {
   });
 
   it('Validate preenche textboxes', () => {
-    element.all(by.id('firstname')).sendKeys('Jubileo');
-    element.all(by.id('lastname')).sendKeys('Eteuvino');
+    element.all(by.id('firstname')).sendKeys('Gabriel');
+    element.all(by.id('lastname')).sendKeys('Carvalho de Faria');
 
     element.all(by.id('firstname')).getAttribute('value').then(function (text) {
-      expect(text == 'Jubileo').toBe(true);
+      expect(text == 'Gabriel').toBe(true);
     });
 
     element.all(by.id('lastname')).getAttribute('value').then(function (text) {
-      expect(text == 'Eteuvino').toBe(true);
+      expect(text == 'Carvalho de Faria').toBe(true);
     });
   });
 
@@ -42,6 +43,9 @@ describe('workspace-project App', () => {
       element(by.css('.form-group')).
       element(by.css('.form-control')).
       element(by.css('.btn btn-primary'));
+      
+      //(Test error)
+      //expect(triple).toEqual(4)
   });
 
   afterEach(async () => {
